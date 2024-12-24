@@ -25,5 +25,26 @@ namespace AdventOfCode2015
             }
             return floor;
         }
+        internal static int FindBasement()
+        {
+            string input = File.ReadAllText("Day1.txt");
+            int floor = 0;
+            for (int i = 0; i < input.Length; i++)
+            {
+                if (input[i] == '(')
+                {
+                    floor++;
+                }
+                else
+                {
+                    floor--;
+                }
+                if (floor == -1)
+                {
+                    return i + 1;
+                }
+            }
+            return 0;
+        }
     }
 }
